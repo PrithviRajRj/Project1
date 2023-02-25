@@ -1,0 +1,67 @@
+<div class="topbar">
+    <h2>Register</h2>
+</div>
+<div class="firstform">
+    <form [formGroup]="AddDataForm">
+        <div >
+            <input placeholder="college Id" formControlName="collegeId"/>
+        </div>
+        <div class="inputdiv">
+            <input  placeholder="Name" formControlName="Name"/>
+        </div>
+        <div class="inputdiv">
+            <input placeholder="Email" formControlName="Email"/>
+        </div>
+        <div class="inputdiv">
+            <input placeholder="Mobile number" formControlName="Mobilenumber"/>
+        </div>
+        <div class="inputdiv">
+            <input placeholder="Address" formControlName="Address"/>
+        </div>
+        <div class="inputdiv">
+            <input placeholder="State" formControlName="State"/>
+        </div>
+        <div class="inputdiv">
+            <input placeholder="City" formControlName="City"/>
+        </div>
+        <div class="inputdiv">
+            <input placeholder="Department" formControlName="Department"/>
+        </div>
+    </form>
+    <div>
+        <button class="submitbutton" (click)="getsubmit()">Submit</button>
+    </div>
+</div>
+
+<mat-table mat-table [dataSource]="dataSource">
+
+    <ng-container matColumnDef="collegeid">
+      <th mat-header-cell *matHeaderCellDef>College Id</th>
+      <td mat-cell *matCellDef="let element"> {{element.collegeId}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="number">
+        <th mat-header-cell *matHeaderCellDef> Mb Number</th>
+        <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="department">
+        <th mat-header-cell *matHeaderCellDef> Mb Number</th>
+        <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="getdelete">
+        <th mat-header-cell *matHeaderCellDef>  </th>
+        <td mat-cell *matCellDef="let element">
+            <button (click)="deletedata(element.collegeId)">Delete</button>
+        </td>
+        
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </mat-table>
